@@ -1,24 +1,24 @@
 library(reticulate)
-install_miniconda(force = TRUE)
+#install_miniconda(force = TRUE)
 library(keras)
 library(dplyr)
 library(EBImage)
 library(BiocManager)
 
-install_keras()
+#install_keras()
 
-BiocManager::install("EBImage") 
+#BiocManager::install("EBImage") 
 
 #set working directory 
 
-setwd("D:/STUDENTS/Haritha/Pratheesh/raw")
-card<-readImage("june_3.jpg")
-print(card)
-getFrames(card, type = "total")
-display(card)
+#setwd("D:/STUDENTS/Haritha/Pratheesh/raw")
+#card<-readImage("june_3.jpg")
+#print(card)
+#getFrames(card, type = "total")
+#display(card)
 
 ### access all ripe
-setwd("D:/STUDENTS/Haritha/Pratheesh/ripe")
+setwd("D:/MSC STAT STUDENTS/2021 batch/ARUNIMA/CNN_banana/Pratheesh/ripe")
 img.card<- sample(dir()); #-------shuffle the order
 cards<-list(NULL);        
 for(i in 1:length(img.card))
@@ -28,7 +28,7 @@ ripe<- cards      # Storing stack of images in # matrix form in a list
 #-----------------------------------------------------------
 
 ### access all raw
-setwd("D:/STUDENTS/Haritha/Pratheesh/raw")
+setwd("D:/MSC STAT STUDENTS/2021 batch/ARUNIMA/CNN_banana/Pratheesh/raw")
 img.card<- sample(dir()); #-------shuffle the order
 cards<-list(NULL);        
 for(i in 1:length(img.card))
@@ -38,7 +38,7 @@ raw<- cards      # Storing stack of images in # matrix form in a list
 #-----------------------------------------------------------
 
 ### access all medium
-setwd("D:/STUDENTS/Haritha/Pratheesh/medium")
+setwd("D:/MSC STAT STUDENTS/2021 batch/ARUNIMA/CNN_banana/Pratheesh/medium")
 img.card<- sample(dir()); #-------shuffle the order
 cards<-list(NULL);        
 for(i in 1:length(img.card))
@@ -48,7 +48,7 @@ medium<- cards      # Storing stack of images in # matrix form in a list
 #-----------------------------------------------------------
 
 ### access all above medium
-setwd("D:/STUDENTS/Haritha/Pratheesh/abv_med")
+setwd("D:/MSC STAT STUDENTS/2021 batch/ARUNIMA/CNN_banana/Pratheesh/abv_med")
 img.card<- sample(dir()); #-------shuffle the order
 cards<-list(NULL);        
 for(i in 1:length(img.card))
@@ -170,7 +170,4 @@ pred1<-model.card %>% predict(test) %>% k_argmax()
 pred1<- pred<-as.matrix(pred1)
 Test_Result<-table(Predicted = pred1, Actual = test_y) #-----Results
 
-rownames(Train_Result)<-rownames(Test_Result)<-colnames(Train_Result)<-colnames(Test_Result)<-c("Clubs", "Hearts", "Spades", "Diamonds")
-print(Train_Result)
-print(Test_Result)
 
